@@ -62,14 +62,15 @@ export const Form = () => {
     defaultValues: {
       firstName: '',
       email: '',
-      gender: 1,
+        gender: 1,
       age: 1,
       subscribed: false
     }
   });
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
   const fillExampleState = () => {
-    Object.keys(exampleState).forEach(key => setValue(key as keyof Inputs, exampleState[key as keyof Inputs]));
+    Object.keys(exampleState)
+      .forEach(key => setValue(key as keyof Inputs, exampleState[key as keyof Inputs], { shouldValidate: true }));
   };
 
   return (
