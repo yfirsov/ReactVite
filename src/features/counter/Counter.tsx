@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../../hooks.ts';
 
 import { decrement, increment, setAmount } from './counterSlice';
@@ -9,7 +10,7 @@ export const Counter = () => {
 
   return (
     <div style={{display: 'flex', gap: '10px', justifyContent: 'center', flexDirection: 'column'}}>
-      <div>{ count }</div>
+      <Typography variant='h5'>{ count }</Typography>
       <div style={{display: 'flex', gap: '10px', justifyContent: 'center'}}>
         <button onClick={ () => dispatch(increment()) }>Inc</button>
         <button onClick={ () => dispatch(decrement()) }>Dec</button>

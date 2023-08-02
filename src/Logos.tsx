@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import viteLogo from '../public/vite.svg';
 import reactLogo from './assets/react.svg';
 
@@ -13,10 +14,10 @@ export const Logos = () => {
           <img src={ reactLogo } className='logo react' alt='React logo' />
         </a>
       </div>
-      <p className='read-the-docs'>
+      <Typography variant='h6' className='read-the-docs'>
         Click on the Vite and React logos to learn more
-      </p>
-      <h1>Vite + React</h1>
+      </Typography>
+      <Typography variant='h2'>Vite + React</Typography>
     </>
   );
 };

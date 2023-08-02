@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { getTime } from './utils.ts';
 
@@ -11,6 +12,6 @@ export const Watch = () => {
   }, []);
 
   return (
-    <h2>{ getTime(currentTime) }</h2>
+    <Box sx={{fontSize: '1.5rem', fontWeight: 'bold'}}>{ getTime(currentTime) }</Box>
   );
 };

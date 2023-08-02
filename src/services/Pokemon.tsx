@@ -1,4 +1,4 @@
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, List, ListItemText, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useGetPokemonByIdQuery } from './pokemon.ts';
 
@@ -13,12 +13,15 @@ export const Pokemon = () => {
       { error && <h1>Something went wrong</h1> }
       { data &&
         <>
-          <h3>Pokemon - { data.species.name.toUpperCase() }</h3>
+          <Typography variant='h4'>Pokemon - { data.species.name.toUpperCase() }</Typography>
           <img src={ data.sprites.front_shiny } alt={ data.species.name } />
-          <h3>Abilities</h3>
-          { data.abilities.map(ability => (
-            <div key={ability.ability.name}>{ ability.ability.name }</div>
-          )) }
+          <Typography variant='h4'>Abilities</Typography>
+          <List>
+            { data.abilities.map(ability => (
+              <ListItemText  key={ability.ability.name} primary={ability.ability.name} />
+            )) }
+          </List>
+
         </> }
     </>
   );

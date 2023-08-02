@@ -1,3 +1,4 @@
+import { CircularProgress, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { Counter } from '../features/counter/Counter.tsx';
 import { useAppSelector } from '../hooks.ts';
@@ -11,12 +12,12 @@ export const Pokemons = () => {
   return (
     <div>
       { error ? (
-        <>Oh no, there was an error</>
+        <Typography>Oh no, there was an error</Typography>
       ) : isLoading ? (
-        <>Loading...</>
+        <CircularProgress />
       ) : data ? (
         <>
-          <h3>Random Pokemon - { data.species.name.toUpperCase() }</h3>
+          <Typography variant='h5' fontWeight={700}>Random Pokemon - { data.species.name.toUpperCase() }</Typography>
           <NavLink to={`${id}`}>
             <img src={ data.sprites.front_shiny } alt={ data.species.name } />
           </NavLink>
