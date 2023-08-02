@@ -1,6 +1,7 @@
 import {
   Box,
-  Button, Card,
+  Button,
+  Card,
   Checkbox,
   FormControl,
   FormControlLabel,
@@ -11,36 +12,40 @@ import {
   Radio,
   RadioGroup,
   Select,
-  TextField, Typography
+  TextField,
+  Typography,
 } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import styles from './Form.module.scss';
 
-
 type Inputs = {
-  firstName: string,
-  email: string,
-  gender: number,
-  age: number,
-  subscribed: boolean,
-}
+  firstName: string;
+  email: string;
+  gender: number;
+  age: number;
+  subscribed: boolean;
+};
 
 const genders = [
   {
-    id: 1, gender: 'Male'
+    id: 1,
+    gender: 'Male',
   },
   {
-    id: 2, gender: 'Female'
-  }
+    id: 2,
+    gender: 'Female',
+  },
 ];
 
 const ages = [
   {
-    id: 1, age: '18-'
+    id: 1,
+    age: '18-',
   },
   {
-    id: 2, age: '18+'
-  }
+    id: 2,
+    age: '18+',
+  },
 ];
 
 const exampleState: Inputs = {
@@ -48,7 +53,7 @@ const exampleState: Inputs = {
   email: 'johndoe@gmail.com',
   gender: 1,
   age: 2,
-  subscribed: true
+  subscribed: true,
 };
 
 export const Form = () => {
@@ -57,131 +62,167 @@ export const Form = () => {
     control,
     formState: { errors },
     reset,
-    setValue
+    setValue,
   } = useForm<Inputs>({
     defaultValues: {
       firstName: '',
       email: '',
-        gender: 1,
+      gender: 1,
       age: 1,
-      subscribed: false
-    }
+      subscribed: false,
+    },
   });
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
   const fillExampleState = () => {
-    Object.keys(exampleState)
-      .forEach(key => setValue(key as keyof Inputs, exampleState[key as keyof Inputs], { shouldValidate: true }));
+    Object.keys(exampleState).forEach(key =>
+      setValue(key as keyof Inputs, exampleState[key as keyof Inputs], {
+        shouldValidate: true,
+      }),
+    );
   };
 
   return (
-    <Card sx={ { padding: 2 } } variant='outlined'>
-      <Typography variant='h4'>Feedback Form</Typography>
-      <form onSubmit={ handleSubmit(onSubmit) } className={ styles.form }>
+    <Card sx={{ padding: 2 }} variant="outlined">
+      <Typography variant="h4">Feedback Form</Typography>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <Controller
-          control={ control }
-          rules={ {
+          control={control}
+          rules={{
             validate: {
-              required: (v) => !v ? 'Required' : true,
-              maxLength: (v) => v.length > 9 ? 'Length must be less than 10' : true
-            }
-          } }
-          render={ ({ field: { onChange, onBlur, value } }) => (
+              required: v => (!v ? 'Required' : true),
+              maxLength: v =>
+                v.length > 9 ? 'Length must be less than 10' : true,
+            },
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
             <TextField
-              error={ !!errors.firstName?.message }
-              label='First name'
-              helperText={ errors.firstName?.message }
-              variant='standard'
-              onBlur={ onBlur }
-              onChange={ onChange }
-              value={ value }
+              error={!!errors.firstName?.message}
+              label="First name"
+              helperText={errors.firstName?.message}
+              variant="standard"
+              onBlur={onBlur}
+              onChange={onChange}
+              value={value}
             />
-          ) }
-          name='firstName'
+          )}
+          name="firstName"
         />
         <Controller
-          control={ control }
-          rules={ {
+          control={control}
+          rules={{
             validate: {
-              required: (v) => !v ? 'Required' : true,
-              pattern: (v) => /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v) || 'Not a valid email'
-            }
-          } }
-          render={ ({ field: { onChange, onBlur, value } }) => (
+              required: v => (!v ? 'Required' : true),
+              pattern: v =>
+                /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(v) ||
+                'Not a valid email',
+            },
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
             <TextField
-              error={ !!errors.email?.message }
-              label='Email'
-              helperText={ errors.email?.message }
-              variant='standard'
-              onBlur={ onBlur }
-              onChange={ onChange }
-              value={ value }
+              error={!!errors.email?.message}
+              label="Email"
+              helperText={errors.email?.message}
+              variant="standard"
+              onBlur={onBlur}
+              onChange={onChange}
+              value={value}
             />
-          ) }
-          name='email'
+          )}
+          name="email"
         />
         <Controller
-          control={ control }
-          rules={ {
-            required: 'Required'
-          } }
-          render={ ({ field: { onChange, onBlur, value } }) => (
-            <FormControl fullWidth sx={ { m: 1 } } error={ !!errors.gender?.message }>
-              <InputLabel id='gender'>Gender</InputLabel>
+          control={control}
+          rules={{
+            required: 'Required',
+          }}
+          render={({ field: { onChange, onBlur, value } }) => (
+            <FormControl
+              fullWidth
+              sx={{ m: 1 }}
+              error={!!errors.gender?.message}
+            >
+              <InputLabel id="gender">Gender</InputLabel>
               <Select
-                label='Gender'
-                id='gender'
-                onChange={ onChange }
-                onBlur={ onBlur }
-                value={ value }
+                label="Gender"
+                id="gender"
+                onChange={onChange}
+                onBlur={onBlur}
+                value={value}
               >
-                <MenuItem value=''>
+                <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
-                { genders.map(({ id, gender }) => <MenuItem value={ id } key={ id }>{ gender }</MenuItem>) }
+                {genders.map(({ id, gender }) => (
+                  <MenuItem value={id} key={id}>
+                    {gender}
+                  </MenuItem>
+                ))}
               </Select>
-              { errors.gender?.message && <FormHelperText>{ errors.gender?.message }</FormHelperText> }
+              {errors.gender?.message && (
+                <FormHelperText>{errors.gender?.message}</FormHelperText>
+              )}
             </FormControl>
-          ) }
-          name='gender'
+          )}
+          name="gender"
         />
 
         <Controller
-          control={ control }
-          render={ ({ field: { onChange, value } }) => (
+          control={control}
+          render={({ field: { onChange, value } }) => (
             <FormControl>
-              <FormLabel id='radio-buttons-group'>Age</FormLabel>
+              <FormLabel id="radio-buttons-group">Age</FormLabel>
               <RadioGroup
                 row
-                aria-labelledby='radio-buttons-group'
-                value={ value }
-                onChange={ onChange }
+                aria-labelledby="radio-buttons-group"
+                value={value}
+                onChange={onChange}
               >
-                { ages.map((item) =>
-                  <FormControlLabel value={ item.id }
-                                    key={ item.id }
-                                    control={ <Radio /> }
-                                    label={ item.age } />) }
+                {ages.map(item => (
+                  <FormControlLabel
+                    value={item.id}
+                    key={item.id}
+                    control={<Radio />}
+                    label={item.age}
+                  />
+                ))}
               </RadioGroup>
             </FormControl>
-          ) }
-          name='age' />
+          )}
+          name="age"
+        />
 
         <Controller
-          control={ control }
-          render={ ({ field: { onChange, value } }) => (
+          control={control}
+          render={({ field: { onChange, value } }) => (
             <FormControlLabel
-              control={ <Checkbox onChange={ onChange } checked={ value } /> }
-              label='Subscribe to news'
-              labelPlacement='end'
+              control={<Checkbox onChange={onChange} checked={value} />}
+              label="Subscribe to news"
+              labelPlacement="end"
             />
-          ) }
-          name='subscribed' />
+          )}
+          name="subscribed"
+        />
 
-        <Box sx={ { display: 'flex', gap: 1 } }>
-          <Button type='button' variant='contained' color='error' onClick={ () => reset() }>Reset</Button>
-          <Button type='button' variant='contained' color='success' onClick={ () => fillExampleState() }>Fill
-            example</Button>
-          <Button type='submit' variant='contained'>Submit Form</Button>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          <Button
+            type="button"
+            variant="contained"
+            color="error"
+            onClick={() => reset()}
+          >
+            Reset
+          </Button>
+          <Button
+            type="button"
+            variant="contained"
+            color="success"
+            onClick={() => fillExampleState()}
+          >
+            Fill example
+          </Button>
+          <Button type="submit" variant="contained">
+            Submit Form
+          </Button>
         </Box>
       </form>
     </Card>

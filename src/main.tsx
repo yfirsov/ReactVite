@@ -6,7 +6,6 @@ import App from './App.tsx';
 import './index.css';
 import { setupStore } from './store.ts';
 
-
 const store = setupStore();
 const theme = createTheme({
   typography: {
@@ -20,7 +19,7 @@ const theme = createTheme({
       'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
+      '"Segoe UI Symbol"',
     ].join(','),
   },
   components: {
@@ -36,19 +35,19 @@ const theme = createTheme({
           subtitle1: 'h2',
           subtitle2: 'h2',
           body1: 'span',
-          body2: 'span'
-        }
-      }
-    }
-  }
+          body2: 'span',
+        },
+      },
+    },
+  },
 });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Provider store={ store }>
-      <ThemeProvider theme={ theme }>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

@@ -58,10 +58,10 @@ nav {
     padding: 5px 10px;
     border: 1px solid lightblue;
     border-radius: 15px;
-    transition: box-shadow .2s;
+    transition: box-shadow 0.2s;
 
     &:hover {
-      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .5);
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
     }
     &.active {
       color: #7cde7a;
