@@ -1,15 +1,18 @@
 import {
+  Button,
   CircularProgress,
   List,
   ListItemText,
   Typography,
 } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useGetPokemonByIdQuery } from './pokemon.ts';
 
 export const Pokemon = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetPokemonByIdQuery(id);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -30,6 +33,14 @@ export const Pokemon = () => {
               />
             ))}
           </List>
+          <Button
+            variant="outlined"
+            color="secondary"
+            startIcon={<ArrowBackIcon />}
+            onClick={() => navigate(-1)}
+          >
+            Back
+          </Button>
         </>
       )}
     </>

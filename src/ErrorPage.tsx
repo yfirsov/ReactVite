@@ -1,20 +1,28 @@
-import { NavLink, useRouteError } from 'react-router-dom';
+import { Box, Typography } from '@mui/material';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-type RouteError = {
-  statusText: string;
-  message: string;
-};
 export const ErrorPage = () => {
-  const error = useRouteError() as RouteError;
+  const navigate = useNavigate();
+  useEffect(() => {
+    setTimeout(() => navigate('/'), 5000);
+  }, [navigate]);
 
   return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
-      <NavLink to="/">Home</NavLink>
-    </div>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+        flexDirection: 'column',
+        gap: 1,
+      }}
+    >
+      <Typography variant="h3">Oops! This page does not exist!</Typography>
+      <Typography variant="h3">
+        You will be redirected to the Home Page
+      </Typography>
+    </Box>
   );
 };

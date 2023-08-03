@@ -1,7 +1,7 @@
 import { CircularProgress, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import { Counter } from '../features/counter/Counter.tsx';
-import { useAppSelector } from '../hooks.ts';
+import { Counter } from '../../features/counter/Counter.tsx';
+import { useAppSelector } from '../../hooks.ts';
 import { useGetPokemonByIdQuery } from './pokemon.ts';
 
 export const Pokemons = () => {
