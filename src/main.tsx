@@ -42,8 +42,7 @@ const theme = createTheme({
     },
   },
 });
-console.log(import.meta.env.DEV);
-console.log(import.meta.env.PROD);
+console.log(`Running in ${import.meta.env.MODE} mode`);
 worker
   .start({
     quiet: true,
