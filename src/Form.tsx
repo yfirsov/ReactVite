@@ -56,7 +56,7 @@ const exampleState: Inputs = {
   subscribed: true,
 };
 
-export const Form = () => {
+const Form = () => {
   const {
     handleSubmit,
     control,
@@ -228,3 +228,5 @@ export const Form = () => {
     </Card>
   );
 };
+
+export default Form;

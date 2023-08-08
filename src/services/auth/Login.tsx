@@ -60,7 +60,7 @@ const PasswordInput = ({
   );
 };
 
-export const Login = () => {
+const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formState, setFormState] = useState<LoginRequest>({
@@ -143,3 +143,5 @@ export const Login = () => {
     </Box>
   );
 };
+
+export default Login;

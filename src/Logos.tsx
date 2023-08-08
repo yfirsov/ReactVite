@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import viteLogo from '../public/vite.svg';
 import reactLogo from './assets/react.svg';
 
-export const Logos = () => {
+const Logos = () => {
   return (
     <>
       <Box
@@ -25,3 +25,5 @@ export const Logos = () => {
     </>
   );
 };
+
+export default Logos;

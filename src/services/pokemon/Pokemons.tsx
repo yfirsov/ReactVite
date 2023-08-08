@@ -4,7 +4,7 @@ import { Counter } from '../../features/counter/Counter.tsx';
 import { useAppSelector } from '../../hooks.ts';
 import { useGetPokemonByIdQuery } from './pokemon.ts';
 
-export const Pokemons = () => {
+const Pokemons = () => {
   const id = useAppSelector(state => state.counter.value);
   const { data, error, isLoading } = useGetPokemonByIdQuery(id);
 
@@ -28,3 +28,5 @@ export const Pokemons = () => {
     </div>
   );
 };
+
+export default Pokemons;

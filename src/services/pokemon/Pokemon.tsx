@@ -9,7 +9,13 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useGetPokemonByIdQuery } from './pokemon.ts';
 
-export const Pokemon = () => {
+interface Ability {
+  ability: {
+    name: string;
+  };
+}
+
+const Pokemon = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetPokemonByIdQuery(id);
   const navigate = useNavigate();
@@ -26,7 +32,7 @@ export const Pokemon = () => {
           <img src={data.sprites.front_shiny} alt={data.species.name} />
           <Typography variant="h4">Abilities</Typography>
           <List>
-            {data.abilities.map(ability => (
+            {data.abilities.map((ability: Ability) => (
               <ListItemText
                 key={ability.ability.name}
                 primary={ability.ability.name}
@@ -46,3 +52,5 @@ export const Pokemon = () => {
     </>
   );
 };
+
+export default Pokemon;
