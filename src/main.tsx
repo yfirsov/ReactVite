@@ -42,11 +42,16 @@ const theme = createTheme({
     },
   },
 });
-
+console.log(import.meta.env.DEV);
+console.log(import.meta.env.PROD);
 worker
   .start({
     quiet: true,
-    serviceWorker: { url: '/ReactVite/mockServiceWorker.js' },
+    serviceWorker: {
+      url: `${
+        import.meta.env.PROD ? import.meta.env.BASE_URL : ''
+      }/mockServiceWorker.js`,
+    },
   })
   .then(() => {
     const rootNode = ReactDOM.createRoot(document.getElementById('root')!);
