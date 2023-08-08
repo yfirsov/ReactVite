@@ -45,7 +45,8 @@ const theme = createTheme({
 console.log(`Running in ${import.meta.env.MODE} mode`);
 worker
   .start({
-    quiet: true,
+    quiet: import.meta.env.PROD,
+    onUnhandledRequest: 'bypass',
     serviceWorker: {
       url: `${
         import.meta.env.PROD ? import.meta.env.BASE_URL : ''

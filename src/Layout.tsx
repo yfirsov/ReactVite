@@ -10,7 +10,6 @@ const Layout = () => {
   const { user } = useAuth();
   const dispatch = useDispatch();
   const logOut = () => dispatch(resetCredentials());
-  console.log(import.meta.env);
 
   return (
     <>
