@@ -17,6 +17,7 @@ import { PrivateOutlet } from './utils/PrivateOutlet.tsx';
 const Layout = lazy(() => import('./Layout'));
 const Login = lazy(() => import('./services/auth/Login'));
 const Logos = lazy(() => import('./Logos'));
+const Frames = lazy(() => import('./Frames'));
 const Form = lazy(() => import('./Form'));
 const Pokemon = lazy(() => import('./services/pokemon/Pokemon.tsx'));
 const Pokemons = lazy(() => import('./services/pokemon/Pokemons'));
@@ -39,6 +40,14 @@ const router = createBrowserRouter(
             element={
               <SuspenseWrapper>
                 <Logos />
+              </SuspenseWrapper>
+            }
+          />
+          <Route
+            path="frames"
+            element={
+              <SuspenseWrapper>
+                <Frames />
               </SuspenseWrapper>
             }
           />
