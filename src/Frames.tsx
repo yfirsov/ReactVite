@@ -2,25 +2,25 @@ import { Stack } from '@mui/material';
 import { nanoid } from '@reduxjs/toolkit';
 import { useMemo } from 'react';
 
-type Frame = { src: string; title: string; id: string };
+type Frame = { id: string; src: string; title: string };
 
 const Frames = () => {
   const frames: Frame[] = useMemo(
     () => [
       {
-        title: 'THE AMAZING SPIDER-MAN 2',
+        id: nanoid(),
         src: 'https://www.youtube.com/embed/nbp3Ra3Yp74',
-        id: nanoid(),
+        title: 'THE AMAZING SPIDER-MAN 2',
       },
       {
-        title: 'RUROUNI KENSHIN: THE FINAL/THE BEGINNING (2021)',
+        id: nanoid(),
         src: 'https://www.youtube.com/embed/eAA1ZDSCWjI',
-        id: nanoid(),
+        title: 'RUROUNI KENSHIN: THE FINAL/THE BEGINNING (2021)',
       },
       {
-        title: 'The Lion King Official Teaser Trailer',
-        src: 'https://www.youtube.com/embed/4CbLXeGSDxg',
         id: nanoid(),
+        src: 'https://www.youtube.com/embed/4CbLXeGSDxg',
+        title: 'The Lion King Official Teaser Trailer',
       },
     ],
     [],
