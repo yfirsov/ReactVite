@@ -44,7 +44,10 @@ const theme = createTheme({
 });
 
 worker
-  .start({ quiet: true })
+  .start({
+    quiet: true,
+    serviceWorker: { url: '/ReactVite/mockServiceWorker.js' },
+  })
   .then(() => {
     const rootNode = ReactDOM.createRoot(document.getElementById('root')!);
 
