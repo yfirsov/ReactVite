@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import App from './App.tsx';
 import './index.css';
+import { AppProvider } from './AppContext.tsx';
 import { worker } from './mocks/browser.ts';
 import { setupStore } from './store.ts';
 
@@ -60,7 +61,9 @@ worker
       <React.StrictMode>
         <Provider store={store}>
           <ThemeProvider theme={theme}>
-            <App />
+            <AppProvider>
+              <App />
+            </AppProvider>
           </ThemeProvider>
         </Provider>
       </React.StrictMode>,
