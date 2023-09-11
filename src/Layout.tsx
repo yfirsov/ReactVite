@@ -9,6 +9,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { resetCredentials } from './features/auth/authSlice.tsx';
+import { Canvas } from './features/canvas/Canvas.tsx';
 import { Footer } from './Footer.tsx';
 import { useAppContext } from './hooks.ts';
 import { useAuth } from './hooks/useAuth.ts';
@@ -47,6 +48,7 @@ const Layout = () => {
       </Stack>
       <main>
         <Outlet />
+        <Canvas />
       </main>
       <Footer />
     </div>
