@@ -8,12 +8,13 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import { Theme } from './enums/theme.ts';
 import { resetCredentials } from './features/auth/authSlice.tsx';
 import { Canvas } from './features/canvas/Canvas.tsx';
+import { Nav } from './features/nav/Nav.tsx';
 import { Footer } from './Footer.tsx';
 import { useAppContext } from './hooks.ts';
 import { useAuth } from './hooks/useAuth.ts';
-import { Nav } from './Nav.tsx';
 
 const Layout = () => {
   const { user } = useAuth();
@@ -34,11 +35,11 @@ const Layout = () => {
           <FormControlLabel
             control={
               <Checkbox
-                checked={theme === 'lightcyan'}
+                checked={theme === Theme.DARK}
                 onChange={() => setTheme?.()}
               />
             }
-            label="Lightcyan mode"
+            label="Dark mode"
           />
           <Avatar>{user?.avatarName}</Avatar>
           <Button variant="outlined" onClick={logOut}>

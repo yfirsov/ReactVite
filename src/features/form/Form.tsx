@@ -82,8 +82,8 @@ const Form = () => {
   };
 
   return (
-    <Card sx={{ padding: 2 }} variant="outlined">
-      <Typography variant="h4">Feedback Form</Typography>
+    <Card sx={{ padding: 2, borderRadius: 5 }} variant="outlined">
+      <Typography variant="h4">Feedback</Typography>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <Controller
           control={control}

@@ -1,6 +1,14 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 #root {
   width: 100%;
-  box-sizing: border-box;
   min-height: 100vh;
   text-align: center;
   display: flex;
@@ -18,8 +26,12 @@
     padding: 1.5rem;
     box-sizing: border-box;
 
-    &.lightcyan {
-      background-color: lightcyan;
+    &.dark {
+      background: linear-gradient(
+              155deg,
+              rgba(255, 255, 255, .2) 50%,
+              rgba(51, 56, 57, 1) 100%
+      ) center center / 100% 100% no-repeat;
     }
   }
 }
@@ -72,12 +84,13 @@ nav {
   & a {
     padding: 5px 15px;
     border: 1px solid lightblue;
-    border-radius: 10% / 50%;
-    transition: box-shadow 0.2s;
+    border-radius: 20px;
+    transition: box-shadow .2s;
 
     &:hover {
-      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 10px 1px #9baaea;
     }
+
     &.active {
       color: #7cde7a;
     }

@@ -6,7 +6,7 @@ export interface Point {
 }
 
 export const usePointerPosition = () => {
-  const [position, setPosition] = useState<Point>({ x: 0, y: 0 });
+  const [position, setPosition] = useState<Point>({ x: -100, y: -100 });
 
   useEffect(() => {
     const handleMove = (e: MouseEvent) => {

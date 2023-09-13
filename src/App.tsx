@@ -16,9 +16,9 @@ import { PrivateOutlet } from './utils/PrivateOutlet.tsx';
 
 const Layout = lazy(() => import('./Layout'));
 const Login = lazy(() => import('./services/auth/Login'));
-const Logos = lazy(() => import('./Logos'));
-const Frames = lazy(() => import('./Frames'));
-const Form = lazy(() => import('./Form'));
+const Logos = lazy(() => import('./features/logos/Logos'));
+const Frames = lazy(() => import('./features/frames/Frames'));
+const Form = lazy(() => import('./features/form/Form'));
 const Pokemon = lazy(() => import('./services/pokemon/Pokemon.tsx'));
 const Pokemons = lazy(() => import('./services/pokemon/Pokemons'));
 

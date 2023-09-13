@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
+import { Theme } from './enums/theme.ts';
 import type { RootState, AppDispatch } from './store';
 
 interface IThemeContext {
@@ -9,7 +10,7 @@ interface IThemeContext {
 }
 
 export const AppContext = createContext<IThemeContext>({
-  theme: '',
+  theme: Theme.LIGHT,
   setTheme: () => true,
 });
 
