@@ -22,6 +22,21 @@ const Frames = () => {
         src: 'https://www.youtube.com/embed/4CbLXeGSDxg',
         title: 'The Lion King Official Teaser Trailer',
       },
+      {
+        id: nanoid(),
+        src: 'https://www.youtube.com/embed/dT0kexzmU7A',
+        title: 'The Recruit | Official Trailer | Netflix',
+      },
+      {
+        id: nanoid(),
+        src: 'https://www.youtube.com/embed/nW948Va-l10',
+        title: "Marvel Studios' Loki | Official Trailer | Disney+",
+      },
+      {
+        id: nanoid(),
+        src: 'https://www.youtube.com/embed/Xj2b0swdpX8',
+        title: 'LOVE DEATH + ROBOTS VOLUME 3 | Official Trailer | Netflix',
+      },
     ],
     [],
   );
